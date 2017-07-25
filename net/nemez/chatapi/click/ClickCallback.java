@@ -13,7 +13,7 @@ public abstract class ClickCallback {
 	public ClickCallback(boolean repeatable, boolean async, String expiredMessage) {
 		this.repeatable = repeatable;
 		this.async = async;
-		this.expiredMessage = ChatAPI.colorify(null, expiredMessage);
+		this.expiredMessage = expiredMessage;
 		this.expired = false;
 	}
 	
@@ -24,7 +24,7 @@ public abstract class ClickCallback {
 			run(sender);
 		}else{
 			if (sender != null) {
-				sender.sendMessage(expiredMessage);
+				sender.sendMessage(ChatAPI.colorify(null, expiredMessage));
 			}
 		}
 		if (!repeatable) {
