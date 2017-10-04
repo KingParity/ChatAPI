@@ -61,15 +61,15 @@ public class ChatAPI {
 	 */
 	public static String colorify(CommandSender sender, String message) {
 		if (sender == null || sender.hasPermission(PERMISSION_CHAT_COLOR)) {
-			message = message.replaceAll("&([0-9a-fA-FrR])", "ง$1");
+			message = message.replaceAll("&([0-9a-fA-FrR])", "ยง$1");
 		}
 		if (sender == null || sender.hasPermission(PERMISSION_CHAT_FORMAT)) {
-			message = message.replaceAll("&([l-oL-OrR])", "ง$1");
+			message = message.replaceAll("&([l-oL-OrR])", "ยง$1");
 		}
 		if (sender == null || sender.hasPermission(PERMISSION_CHAT_MAGIC)) {
-			message = message.replaceAll("&([kKrR])", "ง$1");
+			message = message.replaceAll("&([kKrR])", "ยง$1");
 		}
-		return message.replaceAll("&ง", "&");
+		return message;
 	}
 	
 	/**
