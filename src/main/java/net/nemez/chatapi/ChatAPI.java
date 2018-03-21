@@ -76,6 +76,7 @@ public class ChatAPI
 		{
 			message = message.replaceAll("&([kKrR])", "§$1");
 		}
+		message = message.replace("&§", "&");
 		return message;
 	}
 	
