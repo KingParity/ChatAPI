@@ -6,8 +6,10 @@ import java.util.Random;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandMap;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import net.md_5.bungee.api.chat.TextComponent;
 import net.nemez.chatapi.click.CallbackCommand;
 import net.nemez.chatapi.click.Message;
 import net.nemez.chatapi.click.PlayerQuitListener;
@@ -91,6 +93,19 @@ public class ChatAPI
 			return;
 		}
 		sender.sendMessage(colorify(null, message));
+	}
+	
+	/** Sends a colorified action bar message to the command sender.
+	 * 
+	 * @param sender the command sender to whom to send the action bar message.
+	 * @param message the message to send. */
+	public static void sendActionBar(CommandSender sender, String message)
+	{
+		if (sender instanceof Player)
+		{
+			sender.spigot().sendMessage(new TextComponent(colorify(sender, message)));
+		}
+		
 	}
 	
 	/** Checks if a command sender has the permission node required to send chat messages.
