@@ -3,6 +3,7 @@ package net.nemez.chatapi.click;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
@@ -158,6 +159,12 @@ public class Message
 		}
 	}
 	
+	public Message appendMessage(Message msg) {
+		message.addExtra(msg.message);
+		rawMessage += msg.rawMessage;
+		return this;
+	}
+	
 	public void send()
 	{
 		if (sender == null || !ChatAPI.canChat(this.permission))
@@ -167,6 +174,22 @@ public class Message
 		if (sender instanceof Player)
 		{
 			((Player) sender).spigot().sendMessage(message);
+		}
+		else
+		{
+			sender.sendMessage(rawMessage);
+		}
+	}
+	
+	public void sendAsActionBar()
+	{
+		if (sender == null)
+		{
+			return;
+		}
+		if (sender instanceof Player)
+		{
+			((Player) sender).spigot().sendMessage(ChatMessageType.ACTION_BAR, message);
 		}
 		else
 		{
