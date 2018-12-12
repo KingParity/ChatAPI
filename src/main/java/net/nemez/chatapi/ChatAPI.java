@@ -10,6 +10,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import net.md_5.bungee.api.chat.TextComponent;
+import net.md_5.bungee.api.ChatMessageType;
 import net.nemez.chatapi.click.CallbackCommand;
 import net.nemez.chatapi.click.Message;
 import net.nemez.chatapi.click.PlayerQuitListener;
@@ -103,7 +104,7 @@ public class ChatAPI
 	{
 		if (sender instanceof Player)
 		{
-			sender.spigot().sendMessage(new TextComponent(colorify(sender, message)));
+			((Player) sender).spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(colorify(sender, message)));
 		}
 		
 	}
