@@ -104,7 +104,7 @@ public class ChatAPI
 	{
 		if (sender instanceof Player)
 		{
-			((Player) sender).spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(colorify(sender, message)));
+			((Player) sender).spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(colorify(null, message)));
 		}
 		
 	}
