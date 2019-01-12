@@ -197,6 +197,10 @@ public class Message
 		}
 	}
 	
+	public String getRawMessage() {
+		return rawMessage;
+	}
+	
 	private void addHoverText(BaseComponent comp, String text)
 	{
 		comp.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT,
