@@ -1,9 +1,9 @@
 package net.nemez.chatapi.click;
 
+import org.bukkit.command.CommandSender;
+
 import java.util.HashMap;
 import java.util.UUID;
-
-import org.bukkit.command.CommandSender;
 
 public class CallbackMap {
 
@@ -25,7 +25,7 @@ public class CallbackMap {
 		playerMap.put(id, callback);
 		return id;
 	}
-	
+
 	protected static void execute(CommandSender sender, UUID uuid, int id) {
 		HashMap<Integer, ClickCallback> playerMap = map.get(uuid.toString());
 		if (playerMap == null) {
@@ -42,11 +42,11 @@ public class CallbackMap {
 				}
 			};
 			t.start();
-		}else{
+		} else {
 			cb.execute(sender);
 		}
 	}
-	
+
 	protected static void discard(UUID uuid) {
 		map.remove(uuid.toString());
 	}

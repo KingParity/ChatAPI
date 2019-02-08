@@ -1,12 +1,11 @@
 package net.nemez.chatapi.click;
 
-import java.util.UUID;
-
+import net.nemez.chatapi.ChatAPI;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import net.nemez.chatapi.ChatAPI;
+import java.util.UUID;
 
 public class CallbackCommand extends Command {
 
